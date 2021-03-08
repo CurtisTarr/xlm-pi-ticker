@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 running = True
 first_pass = True
 
-ticks = deque(maxlen=60)
+ticks = deque(maxlen=30)
 for tick in Y_TICKS:
     ticks.append(0)
 
@@ -31,7 +31,7 @@ except Exception as e:
 while running:
     try:
         logging.info("Getting XLM price in GBP")
-        r = requests.get(url="https://api.coinbase.com/v2/prices/XLM-GBP/buy")
+        r = requests.get(url="https://api.coinbase.com/v2/prices/XLM-GBP/buy", timeout=5)
         data = r.json()
         xlm_price =  data['data']['amount']
         logging.info("XLM current price is £" + xlm_price)
@@ -44,7 +44,6 @@ while running:
         fig.canvas.draw()
 
         image = Image.frombytes('RGB', fig.canvas.get_width_height(), fig.canvas.tostring_rgb())
-        fig.close()
         image = image.convert('1')
         image = image.resize((epd2in13_V2.EPD_HEIGHT, epd2in13_V2.EPD_WIDTH))
         draw = ImageDraw.Draw(image)
@@ -57,7 +56,8 @@ while running:
         else:
             epd.displayPartial(epd.getbuffer(image))
 
-        time.sleep(3)
+        matplotlib.pyplot.close()
+        time.sleep(30)
 
     except Exception as e:
         logging.error(e)
@@ -68,4 +68,5 @@ while running:
         running = False
 
 epd.sleep()
+matplotlib.pyplot.close('all')
 exit()
