@@ -12,9 +12,11 @@ echo "----------------------------"
 apt-get install python3-pip -y
 apt-get install python3-pil -y
 apt-get install python3-numpy -y
+apt-get install python3-spidev -y
 pip3 install RPi.GPIO
 git clone https://github.com/waveshare/e-Paper.git
 python3 e-Paper/RaspberryPi_JetsonNano/python/setup.py install
+rm -r e-Paper/
 
 echo "----------------------------"
 echo "Installing project requirements"

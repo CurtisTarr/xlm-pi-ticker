@@ -10,7 +10,7 @@ Which pulls `GBP` price of `XLM` from Coinbase, and displays it on an e-Paper di
 ## Requirements
 * Setup Raspberry Pi.
 * Make sure `dtparam=spi=on` is uncommented in `boot/config.txt`
-* Download setup.sh and run `sudo ./setup.sh`
+* Run `sudo curl https://raw.githubusercontent.com/tarrcurtis/xlm-pi-ticker/main/setup.sh | sudo bash`
 
 Or if you prefer run these commands on your Raspberry Pi to setup the environment (the script does this):
 
@@ -22,8 +22,9 @@ Or if you prefer run these commands on your Raspberry Pi to setup the environmen
 * `sudo apt-get install python3-pip`
 * `sudo apt-get install python3-pil`
 * `sudo apt-get install python3-numpy`
+* `sudo apt-get install python3-spidev`
 * `sudo pip3 install RPi.GPIO`
-* `git clone https://github.com/waveshare/e-Paper.git`
+* `git clone https://github.com/waveshare/e-Paper.git` feel free to delete this after
 * `sudo python3 e-Paper/RaspberryPi_JetsonNano/python/setup.py install`
 
 ### Setup project
