@@ -17,12 +17,13 @@ Or if you prefer run these commands on your Raspberry Pi to setup the environmen
 ### Setup Pi:
 * `sudo apt-get update`
 * `sudo apt-get install git`
+* `sudo apt-get install python3-pip`
   
 ### Setup waveshare e-Paper drivers:
-* `sudo apt-get install python3-pip`
 * `sudo apt-get install python3-pil`
 * `sudo apt-get install python3-numpy`
 * `sudo apt-get install python3-spidev`
+* `sudo apt-get install libopenjp2-7`
 * `sudo pip3 install RPi.GPIO`
 * `git clone https://github.com/waveshare/e-Paper.git` feel free to delete this after
 * `sudo python3 e-Paper/RaspberryPi_JetsonNano/python/setup.py install`
